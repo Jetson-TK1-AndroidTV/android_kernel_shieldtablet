@@ -444,6 +444,12 @@ edp_a_1080p_14_0_sd_settings_init(struct tegra_dc_sd_settings *settings)
 	settings->bl_device_name = "pwm-backlight";
 }
 
+struct tegra_panel_ops edp_a_1080p_14_0_ops = {
+	.enable = edp_a_1080p_14_0_enable,
+	.disable = edp_a_1080p_14_0_disable,
+	.postsuspend = edp_a_1080p_14_0_postsuspend,
+};
+
 struct tegra_panel __initdata edp_a_1080p_14_0 = {
 	.init_sd_settings = edp_a_1080p_14_0_sd_settings_init,
 	.init_dc_out = edp_a_1080p_14_0_dc_out_init,
@@ -451,4 +457,3 @@ struct tegra_panel __initdata edp_a_1080p_14_0 = {
 	.set_disp_device = edp_a_1080p_14_0_set_disp_device,
 };
 EXPORT_SYMBOL(edp_a_1080p_14_0);
-
